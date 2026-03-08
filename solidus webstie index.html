@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solidus Accounting Inc. — Books You Can Trust</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a2e;
+      --slate: #2d2d44;
+      --gold: #c8973a;
+      --gold-light: #e8b96a;
+      --cream: #f9f5ef;
+      --warm-white: #fdfbf8;
+      --muted: #7a7a8c;
+      --border: #e2ddd6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 5vw;
+      background: rgba(253,251,248,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--slate);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--ink);
+      color: var(--cream) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+    /* ---- HERO ---- */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 10rem 5vw 6rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; right: -10%; top: 10%; width: 55%; height: 80%;
+      background: radial-gradient(ellipse at center, #c8973a12 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.8s;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--ink);
+      padding: 0.9rem 2rem;
+      border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      padding: 0.9rem 2rem;
+      border: 1.5px solid var(--ink);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { background: var(--ink); color: var(--cream); }
+
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 1s;
+    }
+    .hero-card-stack { position: relative; width: 360px; height: 420px; }
+    .stat-card {
+      position: absolute;
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(26,26,46,0.15);
+    }
+    .stat-card.main {
+      width: 280px; height: 320px;
+      top: 0; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .stat-card.accent {
+      width: 200px; height: 140px;
+      bottom: 0; right: 0;
+      background: var(--gold);
+      color: var(--ink);
+    }
+    .stat-card.accent2 {
+      width: 160px; height: 120px;
+      bottom: 30px; left: 0;
+      background: var(--cream);
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    .card-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 0.4rem;
+    }
+    .card-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+    .card-value.large { font-size: 3rem; }
+    .card-sub { font-size: 0.8rem; opacity: 0.7; margin-top: 0.3rem; }
+    .card-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .acca-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(200,151,58,0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.4rem 0.8rem;
+      border-radius: 2px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+    }
+
+    /* ---- SECTIONS ---- */
+    section { padding: 7rem 5vw; }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+    .section-sub {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 540px;
+      font-weight: 300;
+    }
+
+    /* ---- SERVICES ---- */
+    #services { background: var(--cream); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+      margin-top: 4rem;
+      border: 2px solid var(--ink);
+    }
+    .service-item {
+      background: var(--warm-white);
+      padding: 2.5rem;
+      border-right: 2px solid var(--ink);
+      transition: background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-item:last-child { border-right: none; }
+    .service-item::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-item:hover { background: var(--ink); }
+    .service-item:hover::before { transform: scaleX(1); }
+    .service-item:hover .service-icon,
+    .service-item:hover .service-name,
+    .service-item:hover .service-desc { color: var(--cream); }
+    .service-icon { font-size: 2rem; margin-bottom: 1.2rem; transition: color 0.25s; }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+      transition: color 0.25s;
+    }
+    .service-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--muted);
+      font-weight: 300;
+      transition: color 0.25s;
+    }
+
+    /* ---- WHY US ---- */
+    #why {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .why-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .why-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .why-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 2.5rem;
+      opacity: 0.4;
+    }
+    .why-text h4 {
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: var(--ink);
+    }
+    .why-text p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+    .why-visual {
+      background: var(--ink);
+      border-radius: 4px;
+      padding: 3rem;
+      color: var(--cream);
+    }
+    .why-visual-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+    .process-step {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .process-step:last-child { border-bottom: none; margin-bottom: 0; }
+    .step-dot {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink);
+      font-size: 0.8rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .step-content h5 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.2rem; }
+    .step-content p { font-size: 0.8rem; opacity: 0.55; line-height: 1.5; }
+
+    /* ---- TESTIMONIALS ---- */
+    #testimonials { background: var(--cream); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .testimonial-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      border-radius: 4px;
+      position: relative;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .testimonial-card:hover {
+      box-shadow: 0 12px 40px rgba(26,26,46,0.08);
+      transform: translateY(-3px);
+    }
+    .quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      line-height: 0.8;
+      color: var(--gold);
+      opacity: 0.3;
+      margin-bottom: 1rem;
+    }
+    .testimonial-text {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--slate);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .author-name { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+    .author-role { font-size: 0.78rem; color: var(--muted); }
+    .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; }
+
+    /* ---- CONTACT ---- */
+    #contact {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2rem 0 0.5rem;
+      color: var(--ink);
+    }
+    .contact-info p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+    .contact-detail {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin: 1rem 0;
+      font-size: 0.9rem; color: var(--slate);
+    }
+    .contact-detail span:first-child { font-size: 1.1rem; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.9rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--ink);
+      background: var(--warm-white);
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-submit {
+      background: var(--gold);
+      color: var(--ink);
+      padding: 1rem 2rem;
+      border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .form-success {
+      display: none;
+      padding: 1.2rem;
+      background: rgba(200,151,58,0.1);
+      border: 1px solid var(--gold);
+      border-radius: 2px;
+      color: var(--ink);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+    .footer-logo span { color: var(--gold); }
+    footer p { font-size: 0.8rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ---- ANIMATIONS ---- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; padding: 8rem 5vw 5rem; }
+      .hero-visual { display: none; }
+      #why { grid-template-columns: 1fr; gap: 3rem; }
+      #contact { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-item { border-right: none; border-bottom: 2px solid var(--ink); }
+      .service-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Solidus<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#testimonials">Credentials</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Canada-wide accounting support</div>
+    <h1 class="hero-headline">
+      Your books,<br /><em>finally</em><br />under control.
+    </h1>
+    <p class="hero-sub">
+      Solidus Accounting Inc. provides accurate, reliable accounting support and financial record management to businesses across Canada — so you can focus on what you built your business for.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Free Intro Call</a>
+      <a href="#services" class="btn-secondary">What We Do</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="stat-card main">
+        <div>
+          <div class="card-icon">📊</div>
+          <div class="card-label">Monthly Bookkeeping</div>
+          <div class="card-value large">Clean.</div>
+          <div class="card-sub">Reconciled. Categorized. Done.</div>
+        </div>
+        <div class="acca-badge">✦ Incorporated in Canada</div>
+      </div>
+      <div class="stat-card accent">
+        <div class="card-label">Response Time</div>
+        <div class="card-value">24h</div>
+        <div class="card-sub">We actually reply.</div>
+      </div>
+      <div class="stat-card accent2">
+        <div class="card-label">Clients Served</div>
+        <div class="card-value">Remote</div>
+        <div class="card-sub">Across Canada 🍁</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What we do</div>
+  <h2 class="section-title">Accounting services built<br />for Canadian businesses.</h2>
+  <p class="section-sub">Professional accounting support delivered clearly, accurately, and on time.</p>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-icon">📒</div>
+      <div class="service-name">Bookkeeping</div>
+      <div class="service-desc">Ongoing monthly or quarterly bookkeeping services — transaction categorization, ledger maintenance, and organized financial records your business can rely on.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🔄</div>
+      <div class="service-name">Account Reconciliations</div>
+      <div class="service-desc">Bank and account reconciliations performed regularly to ensure your records are accurate, complete, and free of discrepancies.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">📈</div>
+      <div class="service-name">Financial Reporting</div>
+      <div class="service-desc">Profit & loss statements, balance sheets, and cash flow reports that give a clear, accurate picture of your business — presented in plain language.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">☁️</div>
+      <div class="service-name">Cloud Accounting Systems</div>
+      <div class="service-desc">Setup, migration, and ongoing management of cloud-based accounting platforms including QuickBooks Online and Xero, configured to fit your business.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🗂️</div>
+      <div class="service-name">Accounting Support & Advisory</div>
+      <div class="service-desc">Ongoing accounting support for business owners who need a reliable professional to maintain financial records and answer questions as they arise.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🔍</div>
+      <div class="service-name">Financial Organization & Cleanup</div>
+      <div class="service-desc">Months or years behind on your records? Solidus Accounting will systematically organize and reconstruct your financial history — accurately and efficiently.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div>
+    <div class="section-label">Why Solidus</div>
+    <h2 class="section-title">A professional firm.<br />Built for remote work.</h2>
+    <p class="section-sub">A remote-first firm designed to serve businesses across Canada efficiently and professionally.</p>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-text">
+          <h4>Professionally Qualified</h4>
+          <p>Solidus Accounting provides professionally trained accounting expertise to every client engagement — delivered with precision and care.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-text">
+          <h4>Clear, Timely Communication</h4>
+          <p>Solidus Accounting responds within 24 hours and communicates in plain language. Clients always know where their financials stand — no guesswork, no delays.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-text">
+          <h4>Remote by Design</h4>
+          <p>The firm operates entirely online, serving clients across Canada through cloud-based accounting platforms — professional service, wherever you are.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-text">
+          <h4>Focused on Small Business</h4>
+          <p>Solidus Accounting specializes in small to mid-size businesses, incorporated professionals, and self-employed individuals. Every client receives dedicated, attentive service.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="why-visual">
+    <div class="why-visual-title">How it works</div>
+    <div class="process-step">
+      <div class="step-dot">1</div>
+      <div class="step-content">
+        <h5>Free Intro Call</h5>
+        <p>We learn about your business and figure out exactly what you need. No commitment.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-dot">2</div>
+      <div class="step-content">
+        <h5>Custom Proposal</h5>
+        <p>You get a clear, flat-rate quote. No hourly billing surprises, no hidden fees.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-dot">3</div>
+      <div class="step-content">
+        <h5>Onboarding & Setup</h5>
+        <p>We connect to your accounts, set up your tools, and get everything organized.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-dot">4</div>
+      <div class="step-content">
+        <h5>Ongoing Partnership</h5>
+        <p>Monthly deliverables, regular check-ins, and always someone to answer your questions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section id="testimonials" style="background: var(--cream); text-align: center;">
+  <div class="section-label">Our clients</div>
+  <h2 class="section-title" style="margin: 0 auto 1.5rem;">Supporting businesses<br />across Canada.</h2>
+  <p class="section-sub" style="margin: 0 auto 3rem; text-align: center;">Solidus Accounting supports businesses across Canada with reliable accounting and financial reporting — delivered remotely, professionally, and on time.</p>
+  <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem;">
+    <div style="text-align: center;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">Pro</div>
+      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Qualified & Trained</div>
+    </div>
+    <div style="width: 1px; background: var(--border);"></div>
+    <div style="text-align: center;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">🍁</div>
+      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Canada-wide</div>
+    </div>
+    <div style="width: 1px; background: var(--border);"></div>
+    <div style="text-align: center;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">24h</div>
+      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Response Time</div>
+    </div>
+    <div style="width: 1px; background: var(--border);"></div>
+    <div style="text-align: center;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">Inc.</div>
+      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Incorporated in Canada</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info">
+    <div class="section-label">Get in touch</div>
+    <h2 class="section-title">Ready to get your<br />finances in order?</h2>
+    <p class="section-sub">Solidus Accounting offers a complimentary introductory call to understand your needs and outline how the firm can support your business. Reach out to get started.</p>
+
+    <h3>Solidus Accounting Inc.</h3>
+    <p>Registered in Canada · Serving clients nationwide</p>
+
+    <div class="contact-detail">
+      <span>✉️</span>
+      <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="41222e2f3520223501322e2d282534322022222e342f35282f266f222e2c">[email&#160;protected]</a></span>
+    </div>
+    <div class="contact-detail">
+      <span>🍁</span>
+      <span>Canada-wide, fully remote</span>
+    </div>
+    <div class="contact-detail">
+      <span>🕐</span>
+      <span>We respond within 24 business hours</span>
+    </div>
+    <div class="contact-detail">
+      <span>✦</span>
+      <span>Professional accounting support · Incorporated in Canada</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="firstName" placeholder="Jane" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="lastName" placeholder="Smith" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="jane@yourcompany.com" />
+      </div>
+      <div class="form-group">
+        <label>Business Type</label>
+        <select id="businessType">
+          <option value="">Select one...</option>
+          <option>Sole proprietorship</option>
+          <option>Incorporated business</option>
+          <option>Freelancer / Self-employed</option>
+          <option>Partnership</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>What do you need help with?</label>
+        <select id="serviceType">
+          <option value="">Select one...</option>
+          <option>Bookkeeping</option>
+          <option>Account Reconciliations</option>
+          <option>Financial Reporting</option>
+          <option>Cloud Accounting Setup</option>
+          <option>Financial Organization & Cleanup</option>
+          <option>Not sure — let's talk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell us a bit about your situation</label>
+        <textarea id="message" rows="4" placeholder="How many transactions per month? Any software you currently use? What's your biggest headache right now?"></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Send Message →</button>
+      <div class="form-success" id="formSuccess">
+        ✓ Message received! We'll be in touch within one business day.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Solidus<span>.</span></div>
+  <p>© 2026 Solidus Accounting Inc. All rights reserved. Registered in Canada.</p>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#why">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Simple form handler (replace mailto: with your form service)
+  function submitForm() {
+    const email = document.getElementById('email').value;
+    const firstName = document.getElementById('firstName').value;
+    const message = document.getElementById('message').value;
+
+    if (!email || !firstName) {
+      alert('Please fill in your name and email to continue.');
+      return;
+    }
+
+    // For a real form, integrate with Formspree (free): replace action with your Formspree endpoint
+    // For now, show success message
+    document.getElementById('formSuccess').style.display = 'block';
+    document.querySelector('.form-submit').style.display = 'none';
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+  
