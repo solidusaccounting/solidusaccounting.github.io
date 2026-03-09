@@ -241,51 +241,107 @@
       font-weight: 300;
     }
 
-    /* ---- SERVICES ---- */
+    /* ---- SERVICES CAROUSEL ---- */
     #services { background: var(--cream); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2px;
+    .carousel-wrapper {
       margin-top: 4rem;
-      border: 2px solid var(--ink);
-    }
-    .service-item {
-      background: var(--warm-white);
-      padding: 2.5rem;
-      border-right: 2px solid var(--ink);
-      transition: background 0.25s;
       position: relative;
       overflow: hidden;
     }
-    .service-item:last-child { border-right: none; }
-    .service-item::before {
-      content: '';
-      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-      background: var(--gold);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.3s ease;
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .service-item:hover { background: var(--ink); }
-    .service-item:hover::before { transform: scaleX(1); }
-    .service-item:hover .service-icon,
-    .service-item:hover .service-name,
-    .service-item:hover .service-desc { color: var(--cream); }
-    .service-icon { font-size: 2rem; margin-bottom: 1.2rem; transition: color 0.25s; }
+    .service-item {
+      min-width: 100%;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 4rem 5rem;
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      border-radius: 4px;
+    }
+    .service-item-left { flex: 0 0 auto; }
+    .service-item-right { flex: 1; }
+    .service-icon {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .service-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba(200,151,58,0.25);
+      line-height: 1;
+    }
     .service-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
+      font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
-      color: var(--ink);
-      transition: color 0.25s;
+      color: var(--cream);
+      margin-bottom: 1rem;
+      line-height: 1.2;
     }
     .service-desc {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
       font-weight: 300;
-      transition: color 0.25s;
+      max-width: 520px;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+    }
+    .carousel-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+    .carousel-arrows { display: flex; gap: 0.75rem; }
+    .carousel-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--ink);
+      background: transparent;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+      color: var(--ink);
+    }
+    .carousel-btn:hover { background: var(--ink); color: var(--cream); }
+    .carousel-progress {
+      height: 2px;
+      background: var(--border);
+      margin-top: 1rem;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .carousel-progress-bar {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.1s linear;
+    }
+    @media (max-width: 700px) {
+      .service-item { flex-direction: column; gap: 1.5rem; padding: 2.5rem 2rem; }
+      .service-name { font-size: 1.5rem; }
     }
 
     /* ---- WHY US ---- */
@@ -584,38 +640,78 @@
   <div class="section-label">What we do</div>
   <h2 class="section-title">Accounting services built<br />for Canadian businesses.</h2>
   <p class="section-sub">Professional accounting support delivered clearly, accurately, and on time.</p>
-  <div class="services-grid">
-    <div class="service-item">
-      <div class="service-icon">📒</div>
-      <div class="service-name">Bookkeeping</div>
-      <div class="service-desc">Ongoing monthly or quarterly bookkeeping services — transaction categorization, ledger maintenance, and organized financial records your business can rely on.</div>
-    </div>
-    <div class="service-item">
-      <div class="service-icon">🔄</div>
-      <div class="service-name">Account Reconciliations</div>
-      <div class="service-desc">Bank and account reconciliations performed regularly to ensure your records are accurate, complete, and free of discrepancies.</div>
-    </div>
-    <div class="service-item">
-      <div class="service-icon">📈</div>
-      <div class="service-name">Financial Reporting</div>
-      <div class="service-desc">Profit & loss statements, balance sheets, and cash flow reports that give a clear, accurate picture of your business — presented in plain language.</div>
-    </div>
-    <div class="service-item">
-      <div class="service-icon">☁️</div>
-      <div class="service-name">Cloud Accounting Systems</div>
-      <div class="service-desc">Setup, migration, and ongoing management of cloud-based accounting platforms including QuickBooks Online and Xero, configured to fit your business.</div>
-    </div>
-    <div class="service-item">
-      <div class="service-icon">🗂️</div>
-      <div class="service-name">Accounting Support & Advisory</div>
-      <div class="service-desc">Ongoing accounting support for business owners who need a reliable professional to maintain financial records and answer questions as they arise.</div>
-    </div>
-    <div class="service-item">
-      <div class="service-icon">🔍</div>
-      <div class="service-name">Financial Organization & Cleanup</div>
-      <div class="service-desc">Months or years behind on your records? Solidus Accounting will systematically organize and reconstruct your financial history — accurately and efficiently.</div>
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="service-item">
+        <div class="service-item-left">
+          <div class="service-num">01</div>
+          <div class="service-icon">📒</div>
+        </div>
+        <div class="service-item-right">
+          <div class="service-name">Bookkeeping</div>
+          <div class="service-desc">Ongoing monthly or quarterly bookkeeping services — transaction categorization, ledger maintenance, and organized financial records your business can rely on.</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-left">
+          <div class="service-num">02</div>
+          <div class="service-icon">🔄</div>
+        </div>
+        <div class="service-item-right">
+          <div class="service-name">Account Reconciliations</div>
+          <div class="service-desc">Bank and account reconciliations performed regularly to ensure your records are accurate, complete, and free of discrepancies.</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-left">
+          <div class="service-num">03</div>
+          <div class="service-icon">📈</div>
+        </div>
+        <div class="service-item-right">
+          <div class="service-name">Financial Reporting</div>
+          <div class="service-desc">Profit & loss statements, balance sheets, and cash flow reports that give a clear, accurate picture of your business — presented in plain language.</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-left">
+          <div class="service-num">04</div>
+          <div class="service-icon">☁️</div>
+        </div>
+        <div class="service-item-right">
+          <div class="service-name">Cloud Accounting Systems</div>
+          <div class="service-desc">Setup, migration, and ongoing management of cloud-based accounting platforms including QuickBooks Online and Xero, configured to fit your business.</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-left">
+          <div class="service-num">05</div>
+          <div class="service-icon">🗂️</div>
+        </div>
+        <div class="service-item-right">
+          <div class="service-name">Accounting Support & Advisory</div>
+          <div class="service-desc">Ongoing accounting support for business owners who need a reliable professional to maintain financial records and answer questions as they arise.</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-left">
+          <div class="service-num">06</div>
+          <div class="service-icon">🔍</div>
+        </div>
+        <div class="service-item-right">
+          <div class="service-name">Financial Organization & Cleanup</div>
+          <div class="service-desc">Months or years behind on your records? Solidus Accounting will systematically organize and reconstruct your financial history — accurately and efficiently.</div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="carousel-controls">
+    <div class="carousel-dots" id="carouselDots"></div>
+    <div class="carousel-arrows">
+      <button class="carousel-btn" onclick="moveCarousel(-1)">←</button>
+      <button class="carousel-btn" onclick="moveCarousel(1)">→</button>
+    </div>
+  </div>
+  <div class="carousel-progress"><div class="carousel-progress-bar" id="progressBar"></div></div>
 </section>
 
 <!-- WHY US -->
@@ -807,6 +903,49 @@
 </footer>
 
 <script>
+  // Carousel
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('carouselDots');
+  const progressBar = document.getElementById('progressBar');
+  const total = track.children.length;
+  let current = 0;
+  let interval;
+  const duration = 4000;
+  let startTime;
+
+  // Create dots
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    dotsContainer.appendChild(dot);
+  }
+
+  function goTo(index) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+    resetTimer();
+  }
+
+  function moveCarousel(dir) { goTo(current + dir); }
+
+  function resetTimer() {
+    clearInterval(interval);
+    startTime = Date.now();
+    progressBar.style.width = '0%';
+    interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min((elapsed / duration) * 100, 100);
+      progressBar.style.width = pct + '%';
+      if (elapsed >= duration) goTo(current + 1);
+    }, 50);
+  }
+
+  resetTimer();
+
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -817,7 +956,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.service-item, .why-item, .process-step').forEach(el => {
+  document.querySelectorAll('.why-item, .process-step').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(15px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
