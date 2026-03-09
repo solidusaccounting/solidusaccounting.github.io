@@ -256,40 +256,53 @@
       min-width: 100%;
       background: var(--ink);
       color: var(--cream);
-      padding: 4rem 5rem;
+      padding: 3.5rem 5rem;
       display: flex;
-      gap: 4rem;
+      gap: 5rem;
       align-items: center;
       border-radius: 4px;
+      min-height: 320px;
     }
-    .service-item-left { flex: 0 0 auto; }
+    .service-item-left {
+      flex: 0 0 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
     .service-item-right { flex: 1; }
     .service-icon {
-      font-size: 4rem;
+      font-size: 2.5rem;
       display: block;
-      margin-bottom: 1rem;
+      line-height: 1;
     }
     .service-num {
       font-family: 'Playfair Display', serif;
-      font-size: 5rem;
+      font-size: 6rem;
       font-weight: 900;
-      color: rgba(200,151,58,0.25);
+      color: rgba(200,151,58,0.2);
       line-height: 1;
     }
     .service-name {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.4rem;
       font-weight: 700;
       color: var(--cream);
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       line-height: 1.2;
     }
     .service-desc {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
       font-weight: 300;
-      max-width: 520px;
+      max-width: 560px;
+    }
+    .service-divider {
+      width: 1px;
+      height: 180px;
+      background: rgba(200,151,58,0.3);
+      flex-shrink: 0;
     }
     .carousel-controls {
       display: flex;
@@ -647,6 +660,7 @@
           <div class="service-num">01</div>
           <div class="service-icon">📒</div>
         </div>
+        <div class="service-divider"></div>
         <div class="service-item-right">
           <div class="service-name">Bookkeeping</div>
           <div class="service-desc">Ongoing monthly or quarterly bookkeeping services — transaction categorization, ledger maintenance, and organized financial records your business can rely on.</div>
@@ -657,6 +671,7 @@
           <div class="service-num">02</div>
           <div class="service-icon">🔄</div>
         </div>
+        <div class="service-divider"></div>
         <div class="service-item-right">
           <div class="service-name">Account Reconciliations</div>
           <div class="service-desc">Bank and account reconciliations performed regularly to ensure your records are accurate, complete, and free of discrepancies.</div>
@@ -667,6 +682,7 @@
           <div class="service-num">03</div>
           <div class="service-icon">📈</div>
         </div>
+        <div class="service-divider"></div>
         <div class="service-item-right">
           <div class="service-name">Financial Reporting</div>
           <div class="service-desc">Profit & loss statements, balance sheets, and cash flow reports that give a clear, accurate picture of your business — presented in plain language.</div>
@@ -677,6 +693,7 @@
           <div class="service-num">04</div>
           <div class="service-icon">☁️</div>
         </div>
+        <div class="service-divider"></div>
         <div class="service-item-right">
           <div class="service-name">Cloud Accounting Systems</div>
           <div class="service-desc">Setup, migration, and ongoing management of cloud-based accounting platforms including QuickBooks Online and Xero, configured to fit your business.</div>
@@ -687,6 +704,7 @@
           <div class="service-num">05</div>
           <div class="service-icon">🗂️</div>
         </div>
+        <div class="service-divider"></div>
         <div class="service-item-right">
           <div class="service-name">Accounting Support & Advisory</div>
           <div class="service-desc">Ongoing accounting support for business owners who need a reliable professional to maintain financial records and answer questions as they arise.</div>
@@ -697,6 +715,7 @@
           <div class="service-num">06</div>
           <div class="service-icon">🔍</div>
         </div>
+        <div class="service-divider"></div>
         <div class="service-item-right">
           <div class="service-name">Financial Organization & Cleanup</div>
           <div class="service-desc">Months or years behind on your records? Solidus Accounting will systematically organize and reconstruct your financial history — accurately and efficiently.</div>
