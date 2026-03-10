@@ -72,147 +72,103 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 10rem 5vw 6rem;
+      padding: 10rem 7vw 9rem;
       gap: 4rem;
       position: relative;
       overflow: hidden;
     }
     #hero::before {
       content: '';
-      position: absolute; right: -10%; top: 10%; width: 55%; height: 80%;
-      background: radial-gradient(ellipse at center, #c8973a12 0%, transparent 70%);
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 80% 50%, rgba(200,151,58,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 5% 85%, rgba(26,26,46,0.03) 0%, transparent 60%);
       pointer-events: none;
+      z-index: 0;
     }
+    .hero-watermark {
+      position: absolute;
+      right: -1vw; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6rem, 14vw, 18rem);
+      font-weight: 900;
+      color: rgba(200,151,58,0.07);
+      letter-spacing: -0.04em;
+      pointer-events: none; user-select: none;
+      line-height: 1; z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
     .hero-eyebrow {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 500;
-      margin-bottom: 1.2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.2s;
+      font-size: 0.72rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold);
+      font-weight: 500; margin-bottom: 1.3rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards;
     }
     .hero-headline {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.4s;
+      font-size: clamp(2.8rem, 4.2vw, 4.4rem);
+      font-weight: 900; line-height: 1.07; letter-spacing: -0.03em;
+      color: var(--ink); margin-bottom: 1.6rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.25s forwards;
     }
-    .hero-headline em {
-      font-style: italic;
-      color: var(--gold);
-    }
+    .hero-headline em { font-style: italic; color: var(--gold); font-weight: 700; }
     .hero-sub {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 460px;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.6s;
+      font-size: 1.05rem; line-height: 1.75; color: var(--muted);
+      font-weight: 300; max-width: 460px; margin-bottom: 2.8rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards;
     }
     .hero-actions {
       display: flex; gap: 1rem; flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.8s;
+      opacity: 0; animation: fadeUp 0.7s ease 0.55s forwards;
     }
     .btn-primary {
-      background: var(--gold);
-      color: var(--ink);
-      padding: 0.9rem 2rem;
-      border: none; cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.2s;
-      display: inline-block;
+      background: var(--gold); color: var(--ink); padding: 0.9rem 2rem;
+      border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em;
+      text-decoration: none; border-radius: 2px;
+      transition: background 0.2s, transform 0.2s; display: inline-block;
     }
     .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
     .btn-secondary {
-      background: transparent;
-      color: var(--ink);
-      padding: 0.9rem 2rem;
-      border: 1.5px solid var(--ink);
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.2s;
-      display: inline-block;
+      background: transparent; color: var(--ink); padding: 0.9rem 2rem;
+      border: 1.5px solid var(--ink); cursor: pointer;
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
+      letter-spacing: 0.04em; text-decoration: none; border-radius: 2px;
+      transition: all 0.2s; display: inline-block;
     }
     .btn-secondary:hover { background: var(--ink); color: var(--cream); }
-
     .hero-visual {
+      position: relative; z-index: 2;
       display: flex; justify-content: center; align-items: center;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards 1s;
+      opacity: 0; animation: fadeUp 0.9s ease 0.7s forwards;
     }
-    .hero-card-stack { position: relative; width: 380px; height: 460px; }
-    .stat-card {
-      position: absolute;
-      background: var(--ink);
-      color: var(--cream);
-      border-radius: 8px;
-      padding: 2rem;
-      box-shadow: 0 20px 60px rgba(26,26,46,0.15);
+    .hero-card {
+      background: var(--gold); color: var(--ink);
+      border-radius: 14px; padding: 3.2rem 3rem; width: 320px;
+      box-shadow: 0 40px 90px rgba(200,151,58,0.25), 0 10px 28px rgba(26,26,46,0.08);
+      position: relative; overflow: hidden;
     }
-    .stat-card.main {
-      width: 280px; height: 320px;
-      top: 0; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; justify-content: space-between;
+    .hero-card::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(255,255,255,0.12); pointer-events: none;
     }
-    .stat-card.accent {
-      width: 190px; height: 130px;
-      bottom: 0; right: 0;
-      background: var(--gold);
-      color: var(--ink);
-    }
-    .stat-card.accent2 {
-      width: 170px; height: 120px;
-      bottom: 10px; left: 0;
-      background: var(--cream);
-      color: var(--ink);
-      border: 1px solid var(--border);
+    .hero-card::after {
+      content: ''; position: absolute; bottom: -40px; left: -40px;
+      width: 150px; height: 150px; border-radius: 50%;
+      background: rgba(26,26,46,0.06); pointer-events: none;
     }
     .card-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.6;
-      margin-bottom: 0.4rem;
+      font-size: 0.63rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(26,26,46,0.45); font-weight: 600; margin-bottom: 1.8rem;
     }
-    .card-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
+    .card-main-word {
+      font-family: 'Playfair Display', serif; font-size: 4.5rem;
+      font-weight: 900; color: var(--ink); line-height: 1; letter-spacing: -0.03em;
     }
-    .card-value.large { font-size: 3rem; }
-    .card-sub { font-size: 0.8rem; opacity: 0.7; margin-top: 0.3rem; }
-    .card-icon { font-size: 1.5rem; margin-bottom: 1rem; }
-    .acca-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(200,151,58,0.15);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 0.4rem 0.8rem;
-      border-radius: 2px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-    }
+    .card-divider { width: 42px; height: 2px; background: rgba(26,26,46,0.18); margin: 1.6rem 0; }
+    .card-tagline { font-size: 0.92rem; font-weight: 400; color: rgba(26,26,46,0.6); line-height: 1.7; }
 
     /* ---- SECTIONS ---- */
     section { padding: 7rem 5vw; }
@@ -610,6 +566,9 @@
 
 <!-- HERO -->
 <section id="hero">
+
+  <div class="hero-watermark">SOLIDUS</div>
+
   <div class="hero-content">
     <div class="hero-eyebrow">Canada-wide accounting support</div>
     <h1 class="hero-headline">
@@ -623,29 +582,16 @@
       <a href="#services" class="btn-secondary">What We Do</a>
     </div>
   </div>
+
   <div class="hero-visual">
-    <div class="hero-card-stack">
-      <div class="stat-card main">
-        <div>
-          <div class="card-icon">📊</div>
-          <div class="card-label">Financial Records</div>
-          <div class="card-value large">Clear.</div>
-          <div class="card-sub">Accurate. Organized. Reliable.</div>
-        </div>
-        <div class="acca-badge">✦ Incorporated in Canada</div>
-      </div>
-      <div class="stat-card accent">
-        <div class="card-label">Response Time</div>
-        <div class="card-value">2 days</div>
-        <div class="card-sub">We actually reply.</div>
-      </div>
-      <div class="stat-card accent2">
-        <div class="card-label">Coverage</div>
-        <div class="card-value" style="font-size:1.6rem;">Canada<br/>Wide</div>
-        <div class="card-sub">Fully remote 🍁</div>
-      </div>
+    <div class="hero-card">
+      <div class="card-label">Financial Records</div>
+      <div class="card-main-word">Clean.</div>
+      <div class="card-divider"></div>
+      <div class="card-tagline">Reconciled. Categorized. Done.</div>
     </div>
   </div>
+
 </section>
 
 <!-- SERVICES -->
