@@ -82,15 +82,7 @@
     .hero-panel .line { width: 46px; height: 2px; background: rgba(26,26,46,0.2); margin: 1rem 0; }
     .section-label { color: var(--gold); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.74rem; margin-bottom: 0.9rem; }
     .section-title { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 0.9rem; position: relative; }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: var(--gold);
-      margin-top: 14px;
-      border-radius: 2px;
-    } }
+     }
     .section-sub { max-width: 620px; color: var(--muted); }
     .stats {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem;
@@ -396,11 +388,27 @@
           </div>
           <div class="field">
             <label>Business Type</label>
-            <select><option>Select one...</option></select>
+            <select>
+              <option value="">Select one...</option>
+              <option>Sole proprietorship</option>
+              <option>Incorporated business</option>
+              <option>Freelancer / Self-employed</option>
+              <option>Partnership</option>
+              <option>Other</option>
+            </select>
           </div>
           <div class="field">
             <label>What do you need help with?</label>
-            <select><option>Select one...</option></select>
+            <select>
+              <option value="">Select one...</option>
+              <option>Bookkeeping</option>
+              <option>Account Reconciliations</option>
+              <option>Financial Reporting</option>
+              <option>Payroll Services</option>
+              <option>Cloud Accounting Setup</option>
+              <option>Financial Cleanup / Catch‑up</option>
+              <option>Not sure — let's talk</option>
+            </select>
           </div>
           <div class="field">
             <label>Tell us a bit about your situation</label>
