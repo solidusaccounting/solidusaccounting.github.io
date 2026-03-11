@@ -371,24 +371,24 @@
       </div>
 
       <div class="form-card">
-        <form>
+        <form id="contactForm" action="https://formspree.io/f/mgonowjr" method="POST">
           <div class="form-grid">
             <div class="field">
               <label>First Name</label>
-              <input placeholder="Jane" />
+              <input name="firstName" placeholder="Jane" required />
             </div>
             <div class="field">
               <label>Last Name</label>
-              <input placeholder="Smith" />
+              <input name="lastName" placeholder="Smith" />
             </div>
           </div>
           <div class="field">
             <label>Email Address</label>
-            <input placeholder="jane@yourcompany.com" />
+            <input type="email" name="email" placeholder="jane@yourcompany.com" required />
           </div>
           <div class="field">
             <label>Business Type</label>
-            <select>
+            <select name="businessType">
               <option value="">Select one...</option>
               <option>Sole proprietorship</option>
               <option>Incorporated business</option>
@@ -399,22 +399,24 @@
           </div>
           <div class="field">
             <label>What do you need help with?</label>
-            <select>
+            <select name="serviceType">
               <option value="">Select one...</option>
               <option>Bookkeeping</option>
               <option>Account Reconciliations</option>
               <option>Financial Reporting</option>
               <option>Payroll Services</option>
               <option>Cloud Accounting Setup</option>
-              <option>Financial Cleanup / Catch‑up</option>
+              <option>Financial Cleanup / Catch-up</option>
               <option>Not sure — let's talk</option>
             </select>
           </div>
           <div class="field">
             <label>Tell us a bit about your situation</label>
-            <textarea placeholder="How many transactions per month? Any software you currently use? What's your biggest headache right now?"></textarea>
+            <textarea name="message" placeholder="How many transactions per month? Any software you currently use? What's your biggest headache right now?"></textarea>
           </div>
-          <button type="button" class="submit-btn">Send Message →</button>
+          <button type="submit" class="submit-btn">Send Message →</button>
+          <div id="formSuccess" style="display:none; margin-top:1rem; padding:0.9rem 1rem; border:1px solid var(--gold); border-radius:4px; background:rgba(200,151,58,0.10); color:var(--ink); font-size:0.9rem;">✓ Message received! We'll be in touch within 2 business days.</div>
+          <div id="formError" style="display:none; margin-top:1rem; padding:0.9rem 1rem; border:1px solid #c45b5b; border-radius:4px; background:rgba(196,91,91,0.08); color:var(--ink); font-size:0.9rem;">There was a problem sending your message. Please try again.</div>
         </form>
       </div>
     </div>
@@ -429,5 +431,34 @@
       <a href="#contact">Contact</a>
     </div>
   </footer>
+  <script>
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const success = document.getElementById('formSuccess');
+        const error = document.getElementById('formError');
+        if (success) success.style.display = 'none';
+        if (error) error.style.display = 'none';
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            form.reset();
+            if (success) success.style.display = 'block';
+          } else {
+            if (error) error.style.display = 'block';
+          }
+        } catch (err) {
+          if (error) error.style.display = 'block';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
