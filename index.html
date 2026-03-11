@@ -209,9 +209,10 @@
     .carousel-track {
       display: flex;
       transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 900%;
     }
     .service-item {
-      min-width: 100%;
+      min-width: 11.1111%;
       background: var(--ink);
       color: var(--cream);
       padding: 3.5rem 5rem;
@@ -922,7 +923,7 @@
     </div>
     <div class="contact-detail">
       <span>✦</span>
-      <span>Professional accounting support for businesses across Canada &amp; the United States</span>
+      <span></span>
     </div>
   </div>
 
@@ -1015,7 +1016,7 @@
 
     function goTo(index) {
       current = ((index % total) + total) % total;
-      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      track.style.transform = 'translateX(-' + (current * 11.1111) + '%)';
       var dots = document.querySelectorAll('.carousel-dot');
       dots.forEach(function(d, i) {
         d.classList.toggle('active', i === current);
