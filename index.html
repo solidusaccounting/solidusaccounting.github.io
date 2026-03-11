@@ -152,12 +152,17 @@
     .contact-grid {
       display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 2rem; align-items: start;
     }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: start;
+    }
     .contact-card, .form-card {
       border: 1px solid var(--border);
       border-radius: 10px;
       background: white;
       box-shadow: 0 18px 40px rgba(26,26,46,0.06);
-    }
     }
     .contact-card { padding: 2rem; }
     .contact-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
@@ -200,15 +205,7 @@
     <div class="links">
       <a href="#services">Services</a>
       <a href="#about">About</a>
-      <a href="#contact {
-      background: #faf7f2;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
-
-  #contact">Get in Touch</a>
+      <a href="#contact">Get in Touch</a>
     </div>
   </nav>
 
@@ -353,49 +350,51 @@
     </div>
   </section>
 
-  <section id="contact">
-    <div class="contact-card">
-      <div class="section-label">Get in touch</div>
-      <h2 class="section-title">Ready to get your<br>finances in order?</h2>
-      <p>Solidus Accounting offers a complimentary introductory call to understand your needs and outline how the firm can support your business.</p>
-      <div class="contact-list">
-        <div><span>✉️</span><span>contact@solidusaccounting.com</span></div>
-        <div><span>📞</span><span>(647) 848-2586</span></div>
-        <div><span>🍁</span><span>Canada & U.S., fully remote</span></div>
-        <div><span>🕐</span><span>We respond within 2 business days</span></div>
+  <section id="contact" style="background:#faf7f2; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="section-label">Get in touch</div>
+        <h2 class="section-title">Ready to get your<br>finances in order?</h2>
+        <p>Solidus Accounting offers a complimentary introductory call to understand your needs and outline how the firm can support your business.</p>
+        <div class="contact-list">
+          <div><span>✉️</span><span>contact@solidusaccounting.com</span></div>
+          <div><span>📞</span><span>(647) 848-2586</span></div>
+          <div><span>🍁</span><span>Canada & U.S., fully remote</span></div>
+          <div><span>🕐</span><span>We respond within 2 business days</span></div>
+        </div>
       </div>
-    </div>
 
-    <div class="form-card">
-      <form>
-        <div class="form-grid">
-          <div class="field">
-            <label>First Name</label>
-            <input placeholder="Jane" />
+      <div class="form-card">
+        <form>
+          <div class="form-grid">
+            <div class="field">
+              <label>First Name</label>
+              <input placeholder="Jane" />
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input placeholder="Smith" />
+            </div>
           </div>
           <div class="field">
-            <label>Last Name</label>
-            <input placeholder="Smith" />
+            <label>Email Address</label>
+            <input placeholder="jane@yourcompany.com" />
           </div>
-        </div>
-        <div class="field">
-          <label>Email Address</label>
-          <input placeholder="jane@yourcompany.com" />
-        </div>
-        <div class="field">
-          <label>Business Type</label>
-          <select><option>Select one...</option></select>
-        </div>
-        <div class="field">
-          <label>What do you need help with?</label>
-          <select><option>Select one...</option></select>
-        </div>
-        <div class="field">
-          <label>Tell us a bit about your situation</label>
-          <textarea placeholder="How many transactions per month? Any software you currently use? What's your biggest headache right now?"></textarea>
-        </div>
-        <button type="button" class="submit-btn">Send Message →</button>
-      </form>
+          <div class="field">
+            <label>Business Type</label>
+            <select><option>Select one...</option></select>
+          </div>
+          <div class="field">
+            <label>What do you need help with?</label>
+            <select><option>Select one...</option></select>
+          </div>
+          <div class="field">
+            <label>Tell us a bit about your situation</label>
+            <textarea placeholder="How many transactions per month? Any software you currently use? What's your biggest headache right now?"></textarea>
+          </div>
+          <button type="button" class="submit-btn">Send Message →</button>
+        </form>
+      </div>
     </div>
   </section>
 
