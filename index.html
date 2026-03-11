@@ -889,7 +889,7 @@
         <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Financial Software</div>
       </div>
     </div>
-    <p style="font-size:0.85rem; color:#7a7a8c;">We serve clients in <strong style="color:#1a1a2e;">English</strong> and <strong style="color:#1a1a2e;">Urdu</strong> &nbsp;·&nbsp; Monthly retainers and one-time project engagements available</p>
+    <p style="font-size:0.85rem; color:#7a7a8c;">Monthly retainers and one-time project engagements available.</p>
   </div>
 </section>
 
@@ -989,47 +989,49 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Carousel
-  const track = document.getElementById('carouselTrack');
-  const dotsContainer = document.getElementById('carouselDots');
-  const progressBar = document.getElementById('progressBar');
-  const total = track.children.length;
-  let current = 0;
-  let interval;
-  const duration = 4000;
-  let startTime;
+  document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('carouselTrack');
+    const dotsContainer = document.getElementById('carouselDots');
+    const progressBar = document.getElementById('progressBar');
+    const total = track.children.length;
+    let current = 0;
+    let interval;
+    const duration = 4000;
+    let startTime;
 
-  // Create dots
-  for (let i = 0; i < total; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.onclick = () => goTo(i);
-    dotsContainer.appendChild(dot);
-  }
+    // Create dots
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goTo(i);
+      dotsContainer.appendChild(dot);
+    }
 
-  function goTo(index) {
-    current = (index + total) % total;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-    });
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+      resetTimer();
+    }
+
+    window.moveCarousel = function(dir) { goTo(current + dir); }
+
+    function resetTimer() {
+      clearInterval(interval);
+      startTime = Date.now();
+      progressBar.style.width = '0%';
+      interval = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        const pct = Math.min((elapsed / duration) * 100, 100);
+        progressBar.style.width = pct + '%';
+        if (elapsed >= duration) goTo(current + 1);
+      }, 50);
+    }
+
     resetTimer();
-  }
-
-  function moveCarousel(dir) { goTo(current + dir); }
-
-  function resetTimer() {
-    clearInterval(interval);
-    startTime = Date.now();
-    progressBar.style.width = '0%';
-    interval = setInterval(() => {
-      const elapsed = Date.now() - startTime;
-      const pct = Math.min((elapsed / duration) * 100, 100);
-      progressBar.style.width = pct + '%';
-      if (elapsed >= duration) goTo(current + 1);
-    }, 50);
-  }
-
-  resetTimer();
+  });
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
