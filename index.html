@@ -517,7 +517,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--cream);
+      color: var(--ink);
     }
     .footer-logo span { color: var(--gold); }
     footer p { font-size: 0.8rem; }
@@ -668,397 +668,62 @@
 </section>
 
 <!-- SERVICES -->
-<section id="services" style="padding:7rem 5vw;">
+<section id="services">
   <div class="section-label">Our Services</div>
   <h2 class="section-title">Accounting services for<br />growing businesses.</h2>
   <p class="section-sub">Professional accounting support delivered clearly, accurately, and on time.</p>
 
-  <div class="accordion" style="margin-top:4rem;">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:4rem; border-top:1px solid #d0cdc8;">
 
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)">
-        <span class="acc-title">Bookkeeping</span>
-        <span class="acc-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <line class="acc-h" x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line class="acc-v" x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-content">
-          <p>Ongoing monthly or quarterly bookkeeping services — transaction categorization, ledger maintenance, and organized financial records your business can rely on month after month.</p>
-        </div>
-      </div>
+    <div style="padding:2rem 3rem 2rem 0; border-bottom:1px solid #d0cdc8; border-right:1px solid #d0cdc8;">
+      <div style="width:32px; height:2px; background:var(--gold); margin-bottom:1rem;"></div>
+      <h4 style="font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:0.5rem;">Bookkeeping</h4>
+      <p style="font-size:0.875rem; color:#6b6b7a; line-height:1.7;">Ongoing monthly or quarterly bookkeeping — transaction categorization, ledger maintenance, and organized financial records your business can rely on.</p>
     </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)">
-        <span class="acc-title">Account Reconciliations</span>
-        <span class="acc-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <line class="acc-h" x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line class="acc-v" x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-content">
-          <p>Regular reconciliation of bank accounts, credit cards, and ledgers to ensure your financial records are accurate, complete, and up to date.</p>
-        </div>
-      </div>
+
+    <div style="padding:2rem 0 2rem 3rem; border-bottom:1px solid #d0cdc8;">
+      <div style="width:32px; height:2px; background:var(--gold); margin-bottom:1rem;"></div>
+      <h4 style="font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:0.5rem;">Account Reconciliations</h4>
+      <p style="font-size:0.875rem; color:#6b6b7a; line-height:1.7;">Regular reconciliation of bank accounts, credit cards, and ledgers to ensure your financial records are accurate and up to date.</p>
     </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)">
-        <span class="acc-title">Payroll Services</span>
-        <span class="acc-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <line class="acc-h" x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line class="acc-v" x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-content">
-          <p>Accurate and timely payroll processing for businesses across Canada and the United States — ensuring employees are paid correctly and all compliance obligations are met.</p>
-        </div>
-      </div>
+
+    <div style="padding:2rem 3rem 2rem 0; border-bottom:1px solid #d0cdc8; border-right:1px solid #d0cdc8;">
+      <div style="width:32px; height:2px; background:var(--gold); margin-bottom:1rem;"></div>
+      <h4 style="font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:0.5rem;">Payroll Services</h4>
+      <p style="font-size:0.875rem; color:#6b6b7a; line-height:1.7;">Accurate and timely payroll processing for businesses across Canada and the United States — ensuring employees are paid correctly and compliance obligations are met.</p>
     </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)">
-        <span class="acc-title">HST &amp; GST Filing</span>
-        <span class="acc-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <line class="acc-h" x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line class="acc-v" x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-content">
-          <p>Accurate preparation and filing of HST and GST returns for Canadian businesses — ensuring full compliance with CRA requirements and deadlines.</p>
-        </div>
-      </div>
+
+    <div style="padding:2rem 0 2rem 3rem; border-bottom:1px solid #d0cdc8;">
+      <div style="width:32px; height:2px; background:var(--gold); margin-bottom:1rem;"></div>
+      <h4 style="font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:0.5rem;">HST &amp; GST Filing</h4>
+      <p style="font-size:0.875rem; color:#6b6b7a; line-height:1.7;">Accurate preparation and filing of HST and GST returns for Canadian businesses — ensuring compliance with CRA requirements and deadlines.</p>
     </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)">
-        <span class="acc-title">Financial Reporting</span>
-        <span class="acc-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <line class="acc-h" x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line class="acc-v" x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-content">
-          <p>Clear, accurate financial statements prepared on a regular basis — so you always know exactly where your business stands financially.</p>
-        </div>
-      </div>
+
+    <div style="padding:2rem 3rem 2rem 0; border-bottom:1px solid #d0cdc8; border-right:1px solid #d0cdc8;">
+      <div style="width:32px; height:2px; background:var(--gold); margin-bottom:1rem;"></div>
+      <h4 style="font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:0.5rem;">Financial Reporting</h4>
+      <p style="font-size:0.875rem; color:#6b6b7a; line-height:1.7;">Clear, accurate financial statements prepared regularly — so you always know exactly where your business stands.</p>
     </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)">
-        <span class="acc-title">Cloud Accounting Systems</span>
-        <span class="acc-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <line class="acc-h" x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line class="acc-v" x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-content">
-          <p>Setup, migration, and ongoing management of cloud accounting platforms — QuickBooks Online, Xero, Sage, and Wave — tailored to your business needs.</p>
-        </div>
-      </div>
+
+    <div style="padding:2rem 0 2rem 3rem; border-bottom:1px solid #d0cdc8;">
+      <div style="width:32px; height:2px; background:var(--gold); margin-bottom:1rem;"></div>
+      <h4 style="font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:0.5rem;">Cloud Accounting Systems</h4>
+      <p style="font-size:0.875rem; color:#6b6b7a; line-height:1.7;">Setup, migration, and ongoing management of cloud platforms — QuickBooks Online, Xero, Sage, and Wave.</p>
     </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)">
-        <span class="acc-title">Accounting Support &amp; Advisory</span>
-        <span class="acc-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <line class="acc-h" x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line class="acc-v" x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-content">
-          <p>Ongoing accounting support for business owners who need a reliable professional to maintain financial records and answer questions as they arise.</p>
-        </div>
-      </div>
+
+    <div style="padding:2rem 3rem 2rem 0; border-right:1px solid #d0cdc8;">
+      <div style="width:32px; height:2px; background:var(--gold); margin-bottom:1rem;"></div>
+      <h4 style="font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:0.5rem;">Accounting Support &amp; Advisory</h4>
+      <p style="font-size:0.875rem; color:#6b6b7a; line-height:1.7;">Ongoing support for business owners who need a reliable professional to maintain records and answer questions as they arise.</p>
     </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)">
-        <span class="acc-title">Financial Organization &amp; Cleanup</span>
-        <span class="acc-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <line class="acc-h" x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line class="acc-v" x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-content">
-          <p>Behind on your records? Solidus Accounting will systematically organize and reconstruct your financial history — accurately, thoroughly, and efficiently.</p>
-        </div>
-      </div>
+
+    <div style="padding:2rem 0 2rem 3rem;">
+      <div style="width:32px; height:2px; background:var(--gold); margin-bottom:1rem;"></div>
+      <h4 style="font-family:var(--serif); font-size:1.15rem; color:var(--ink); margin-bottom:0.5rem;">Financial Organization &amp; Cleanup</h4>
+      <p style="font-size:0.875rem; color:#6b6b7a; line-height:1.7;">Behind on your records? Solidus will systematically organize and reconstruct your financial history — accurately and efficiently.</p>
     </div>
-  </div>
-  <div class="why-visual">
-    <div class="why-visual-title">How it works</div>
-    <div class="process-step">
-      <div class="step-dot">1</div>
-      <div class="step-content">
-        <h5>Free Intro Call</h5>
-        <p>We learn about your business and figure out exactly what you need. No commitment.</p>
-      </div>
-    </div>
-    <div class="process-step">
-      <div class="step-dot">2</div>
-      <div class="step-content">
-        <h5>Custom Proposal</h5>
-        <p>You get a clear, flat-rate quote. No hourly billing surprises, no hidden fees.</p>
-      </div>
-    </div>
-    <div class="process-step">
-      <div class="step-dot">3</div>
-      <div class="step-content">
-        <h5>Onboarding & Setup</h5>
-        <p>We connect to your accounts, set up your tools, and get everything organized.</p>
-      </div>
-    </div>
-    <div class="process-step">
-      <div class="step-dot">4</div>
-      <div class="step-content">
-        <h5>Ongoing Partnership</h5>
-        <p>Monthly deliverables, regular check-ins, and always someone to answer your questions.</p>
-      </div>
-    </div>
+
   </div>
 </section>
 
-<!-- CREDIBILITY -->
-<section id="testimonials" style="background: var(--cream); text-align: center;">
-  <div class="section-label">Our clients</div>
-  <h2 class="section-title" style="margin: 0 auto 1.5rem;">Currently supporting businesses<br />across Canada and the United States.</h2>
-  <p class="section-sub" style="margin: 0 auto 3rem; text-align: center;">Solidus Accounting supports incorporated businesses and small firms across North America — delivering reliable accounting support remotely, professionally, and on time.</p>
-  <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem;">
-    <div style="text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">CA & US</div>
-      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Canada & U.S.</div>
-    </div>
-    <div style="width: 1px; background: var(--border);"></div>
-    <div style="text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">Flat</div>
-      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Rate Pricing</div>
-    </div>
-    <div style="width: 1px; background: var(--border);"></div>
-    <div style="text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">2 days</div>
-      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Response Time</div>
-    </div>
-    <div style="width: 1px; background: var(--border);"></div>
-    <div style="text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">Inc.</div>
-      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Incorporated in Canada</div>
-    </div>
-  </div>
-</section>
-
-<!-- SOFTWARE STRIP -->
-<section id="software" style="background:#f7f5f1; padding:60px 0;">
-  <div style="max-width:900px; margin:0 auto; padding:0 40px; text-align:center;">
-    <div class="section-label">Tools We Use</div>
-    <h2 class="section-title" style="font-size:1.6rem; margin-bottom:12px;">Cloud accounting platforms we work with.</h2>
-    <p class="section-sub" style="margin-bottom:48px; max-width:600px; margin-left:auto; margin-right:auto;">We work across all major cloud accounting platforms — so you don't need to change your existing setup.</p>
-    <div style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap; margin-bottom:48px;">
-      <div style="text-align:center;">
-        <div style="font-size:1.1rem; font-weight:700; color:#1a1a2e; letter-spacing:0.05em;">QuickBooks</div>
-        <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Online</div>
-      </div>
-      <div style="width:1px; height:32px; background:#d0cdc8;"></div>
-      <div style="text-align:center;">
-        <div style="font-size:1.1rem; font-weight:700; color:#1a1a2e; letter-spacing:0.05em;">Xero</div>
-        <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Cloud Accounting</div>
-      </div>
-      <div style="width:1px; height:32px; background:#d0cdc8;"></div>
-      <div style="text-align:center;">
-        <div style="font-size:1.1rem; font-weight:700; color:#1a1a2e; letter-spacing:0.05em;">Sage</div>
-        <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Accounting</div>
-      </div>
-      <div style="width:1px; height:32px; background:#d0cdc8;"></div>
-      <div style="text-align:center;">
-        <div style="font-size:1.1rem; font-weight:700; color:#1a1a2e; letter-spacing:0.05em;">Wave</div>
-        <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Financial Software</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-info">
-    <div class="section-label">Get in touch</div>
-    <h2 class="section-title">Ready to get your<br />finances in order?</h2>
-    <p class="section-sub">Solidus Accounting offers a complimentary introductory call to understand your needs and outline how the firm can support your business. Reach out to get started.</p>
-
-    <h3>Solidus Accounting Inc.</h3>
-
-    <div class="contact-detail">
-      <span>✉️</span>
-      <a href="/cdn-cgi/l/email-protection#74171b1a00151700525742404f071b181d1001071517171b011a001d1a13525740424f171b19" style="color:inherit;text-decoration:none;">contact&#64;solidusaccounting&#46;com</a>
-    </div>
-    <div class="contact-detail">
-      <span>📞</span>
-      <a href="tel:+16478482586" style="color:inherit;text-decoration:none;">(647) 848-2586</a>
-    </div>
-    <div class="contact-detail">
-      <span>🍁</span>
-      <span>Canada & U.S., fully remote</span>
-    </div>
-
-  </div>
-
-  <div>
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mgonowjr" method="POST">
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" name="firstName" placeholder="Jane" required />
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" name="lastName" placeholder="Smith" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" name="email" placeholder="jane@yourcompany.com" required />
-      </div>
-      <div class="form-group">
-        <label>Business Type</label>
-        <select name="businessType">
-          <option value="">Select one...</option>
-          <option>Sole proprietorship</option>
-          <option>Incorporated business</option>
-          <option>Freelancer / Self-employed</option>
-          <option>Partnership</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>What do you need help with?</label>
-        <select name="serviceType">
-          <option value="">Select one...</option>
-          <option>Bookkeeping</option>
-          <option>Account Reconciliations</option>
-          <option>Financial Reporting</option>
-          <option>Cloud Accounting Setup</option>
-          <option>Financial Organization & Cleanup</option>
-          <option>Not sure — let's talk</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Tell us a bit about your situation</label>
-        <textarea name="message" rows="4" placeholder="How many transactions per month? Any software you currently use? What's your biggest headache right now?"></textarea>
-      </div>
-      <button type="submit" class="form-submit">Send Message →</button>
-      <div class="form-success" id="formSuccess">
-        ✓ Message received! We'll be in touch within 2 business days.
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo" style="display:flex; align-items:center; gap:10px;">
-    <svg width="40" height="40" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="18" cy="18" r="16" stroke="#c8973a" stroke-width="2.5"/>
-      <circle cx="18" cy="18" r="11" fill="#1a1a2e"/>
-      <text x="18" y="23" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="13" fill="#c8973a">S</text>
-      <line x1="18" y1="5" x2="18" y2="9" stroke="#c8973a" stroke-width="2" stroke-linecap="round"/>
-      <line x1="18" y1="27" x2="18" y2="31" stroke="#c8973a" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-    <span style="font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--ink); letter-spacing:-0.01em;">Solidus<span style="color:var(--gold);">.</span></span>
-  </div>
-  <p>© 2026 Solidus Accounting Inc. All rights reserved.</p>
-  <div class="footer-links">
-    <a href="#services">Services</a>
-    <a href="#why">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
-  // Carousel — runs after full page load
-  window.addEventListener('load', function() {
-    var track = document.getElementById('carouselTrack');
-    var dotsContainer = document.getElementById('carouselDots');
-    var progressBar = document.getElementById('progressBar');
-    var items = track.querySelectorAll('.service-item');
-    var total = items.length;
-    var current = 0;
-    var interval;
-    var duration = 4000;
-    var startTime;
-
-    // Create dots
-    dotsContainer.innerHTML = '';
-    for (var i = 0; i < total; i++) {
-      (function(idx) {
-        var dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
-        dot.addEventListener('click', function() { goTo(idx); });
-        dotsContainer.appendChild(dot);
-      })(i);
-    }
-
-    function goTo(index) {
-      current = ((index % total) + total) % total;
-      track.style.transform = 'translateX(-' + (current * 12.5) + '%)';
-      var dots = document.querySelectorAll('.carousel-dot');
-      dots.forEach(function(d, i) {
-        d.classList.toggle('active', i === current);
-      });
-      resetTimer();
-    }
-
-    window.moveCarousel = function(dir) { goTo(current + dir); };
-
-    function resetTimer() {
-      clearInterval(interval);
-      startTime = Date.now();
-      progressBar.style.width = '0%';
-      interval = setInterval(function() {
-        var elapsed = Date.now() - startTime;
-        var pct = Math.min((elapsed / duration) * 100, 100);
-        progressBar.style.width = pct + '%';
-        if (elapsed >= duration) goTo(current + 1);
-      }, 50);
-    }
-
-    resetTimer();
-  });
-
-
-  function toggleAcc(trigger) {
-    var item = trigger.closest('.acc-item');
-    var isOpen = item.classList.contains('open');
-    // Close all
-    document.querySelectorAll('.acc-item.open').forEach(function(el) {
-      el.classList.remove('open');
-    });
-    // Open clicked if it was closed
-    if (!isOpen) {
-      item.classList.add('open');
-    }
-  }
-
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 't
+t
