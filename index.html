@@ -209,10 +209,10 @@
     .carousel-track {
       display: flex;
       transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      width: 900%;
+      width: 800%;
     }
     .service-item {
-      min-width: 11.1111%;
+      min-width: 12.5%;
       background: var(--ink);
       color: var(--cream);
       padding: 3.5rem 5rem;
@@ -737,24 +737,7 @@
           <div class="service-desc">Accurate preparation and filing of HST and GST returns for Canadian businesses — ensuring compliance with CRA requirements and deadlines.</div>
         </div>
       </div>
-      <div class="service-item">
-        <div class="service-item-left">
-          <div class="service-num">09</div>
-          <div class="service-icon">
-            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="rgba(200,151,58,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="20" x2="18" y2="10"/>
-              <line x1="12" y1="20" x2="12" y2="4"/>
-              <line x1="6" y1="20" x2="6" y2="14"/>
-              <line x1="2" y1="20" x2="22" y2="20"/>
-            </svg>
-          </div>
-        </div>
-        <div class="service-divider"></div>
-        <div class="service-item-right">
-          <div class="service-name">Budgeting</div>
-          <div class="service-desc">Structured budget preparation to help businesses plan ahead, allocate resources effectively, and maintain financial discipline throughout the year.</div>
-        </div>
-      </div>
+
     </div>
   </div>
   <div class="carousel-controls">
@@ -917,14 +900,7 @@
       <span>🍁</span>
       <span>Canada & U.S., fully remote</span>
     </div>
-    <div class="contact-detail">
-      <span>🕐</span>
-      <span>We respond within 2 business days</span>
-    </div>
-    <div class="contact-detail">
-      <span>✦</span>
-      <span></span>
-    </div>
+
   </div>
 
   <div>
@@ -1016,7 +992,7 @@
 
     function goTo(index) {
       current = ((index % total) + total) % total;
-      track.style.transform = 'translateX(-' + (current * 11.1111) + '%)';
+      track.style.transform = 'translateX(-' + (current * 12.5) + '%)';
       var dots = document.querySelectorAll('.carousel-dot');
       dots.forEach(function(d, i) {
         d.classList.toggle('active', i === current);
