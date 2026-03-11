@@ -986,48 +986,57 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Carousel
-  const track = document.getElementById('carouselTrack');
-  const dotsContainer = document.getElementById('carouselDots');
-  const progressBar = document.getElementById('progressBar');
-  const total = track.children.length;
-  let current = 0;
-  let interval;
-  const duration = 4000;
-  let startTime;
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+  // Carousel — runs after full page load
+  window.addEventListener('load', function() {
+    var track = document.getElementById('carouselTrack');
+    var dotsContainer = document.getElementById('carouselDots');
+    var progressBar = document.getElementById('progressBar');
+    var items = track.querySelectorAll('.service-item');
+    var total = items.length;
+    var current = 0;
+    var interval;
+    var duration = 4000;
+    var startTime;
 
-  for (let i = 0; i < total; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.onclick = () => goTo(i);
-    dotsContainer.appendChild(dot);
-  }
+    // Create dots
+    dotsContainer.innerHTML = '';
+    for (var i = 0; i < total; i++) {
+      (function(idx) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+        dot.addEventListener('click', function() { goTo(idx); });
+        dotsContainer.appendChild(dot);
+      })(i);
+    }
 
-  function goTo(index) {
-    current = (index + total) % total;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-    });
+    function goTo(index) {
+      current = ((index % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      var dots = document.querySelectorAll('.carousel-dot');
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
+      });
+      resetTimer();
+    }
+
+    window.moveCarousel = function(dir) { goTo(current + dir); };
+
+    function resetTimer() {
+      clearInterval(interval);
+      startTime = Date.now();
+      progressBar.style.width = '0%';
+      interval = setInterval(function() {
+        var elapsed = Date.now() - startTime;
+        var pct = Math.min((elapsed / duration) * 100, 100);
+        progressBar.style.width = pct + '%';
+        if (elapsed >= duration) goTo(current + 1);
+      }, 50);
+    }
+
     resetTimer();
-  }
-
-  function moveCarousel(dir) { goTo(current + dir); }
-
-  function resetTimer() {
-    clearInterval(interval);
-    startTime = Date.now();
-    progressBar.style.width = '0%';
-    interval = setInterval(() => {
-      const elapsed = Date.now() - startTime;
-      const pct = Math.min((elapsed / duration) * 100, 100);
-      progressBar.style.width = pct + '%';
-      if (elapsed >= duration) goTo(current + 1);
-    }, 50);
-  }
-
-  resetTimer();
+  });
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
