@@ -30,15 +30,19 @@
       overflow-x: hidden;
     }
 
-    /* ---- NAV ---- */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 1.2rem 5vw;
       background: rgba(253,251,248,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
+
     .nav-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.25rem;
@@ -46,8 +50,15 @@
       color: var(--ink);
       letter-spacing: -0.02em;
     }
+
     .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
     .nav-links a {
       font-size: 0.875rem;
       font-weight: 500;
@@ -56,7 +67,9 @@
       letter-spacing: 0.03em;
       transition: color 0.2s;
     }
+
     .nav-links a:hover { color: var(--gold); }
+
     .nav-cta {
       background: var(--ink);
       color: var(--cream) !important;
@@ -64,9 +77,12 @@
       border-radius: 2px;
       transition: background 0.2s !important;
     }
-    .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
 
-    /* ---- HERO ---- */
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--ink) !important;
+    }
+
     #hero {
       min-height: 100vh;
       display: grid;
@@ -77,101 +93,205 @@
       position: relative;
       overflow: hidden;
     }
+
     #hero::before {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background:
         radial-gradient(ellipse 55% 60% at 80% 50%, rgba(200,151,58,0.09) 0%, transparent 65%),
         radial-gradient(ellipse 30% 40% at 5% 85%, rgba(26,26,46,0.03) 0%, transparent 60%);
       pointer-events: none;
       z-index: 0;
     }
+
     .hero-watermark {
       position: absolute;
-      right: -1vw; top: 50%;
+      right: -1vw;
+      top: 50%;
       transform: translateY(-50%);
       font-family: 'Playfair Display', serif;
       font-size: clamp(6rem, 14vw, 18rem);
       font-weight: 900;
       color: rgba(200,151,58,0.07);
       letter-spacing: -0.04em;
-      pointer-events: none; user-select: none;
-      line-height: 1; z-index: 1;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+      z-index: 1;
     }
+
     .hero-content { position: relative; z-index: 2; }
+
     .hero-eyebrow {
-      font-size: 0.72rem; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--gold);
-      font-weight: 500; margin-bottom: 1.3rem;
-      opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.3rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.1s forwards;
     }
+
     .hero-headline {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.8rem, 4.2vw, 4.4rem);
-      font-weight: 900; line-height: 1.07; letter-spacing: -0.03em;
-      color: var(--ink); margin-bottom: 1.6rem;
-      opacity: 0; animation: fadeUp 0.7s ease 0.25s forwards;
+      font-weight: 900;
+      line-height: 1.07;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.25s forwards;
     }
-    .hero-headline em { font-style: italic; color: var(--gold); font-weight: 700; }
-    .hero-sub {
-      font-size: 1.05rem; line-height: 1.75; color: var(--muted);
-      font-weight: 300; max-width: 460px; margin-bottom: 2.8rem;
-      opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards;
-    }
-    .hero-actions {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 0.7s ease 0.55s forwards;
-    }
-    .btn-primary {
-      background: var(--gold); color: var(--ink); padding: 0.9rem 2rem;
-      border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em;
-      text-decoration: none; border-radius: 2px;
-      transition: background 0.2s, transform 0.2s; display: inline-block;
-    }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-    .btn-secondary {
-      background: transparent; color: var(--ink); padding: 0.9rem 2rem;
-      border: 1.5px solid var(--ink); cursor: pointer;
-      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
-      letter-spacing: 0.04em; text-decoration: none; border-radius: 2px;
-      transition: all 0.2s; display: inline-block;
-    }
-    .btn-secondary:hover { background: var(--ink); color: var(--cream); }
-    .hero-visual {
-      position: relative; z-index: 2;
-      display: flex; justify-content: center; align-items: center;
-      opacity: 0; animation: fadeUp 0.9s ease 0.7s forwards;
-    }
-    .hero-card {
-      background: var(--gold); color: var(--ink);
-      border-radius: 14px; padding: 3.2rem 3rem; width: 320px;
-      box-shadow: 0 40px 90px rgba(200,151,58,0.25), 0 10px 28px rgba(26,26,46,0.08);
-      position: relative; overflow: hidden;
-    }
-    .hero-card::before {
-      content: ''; position: absolute; top: -60px; right: -60px;
-      width: 200px; height: 200px; border-radius: 50%;
-      background: rgba(255,255,255,0.12); pointer-events: none;
-    }
-    .hero-card::after {
-      content: ''; position: absolute; bottom: -40px; left: -40px;
-      width: 150px; height: 150px; border-radius: 50%;
-      background: rgba(26,26,46,0.06); pointer-events: none;
-    }
-    .card-label {
-      font-size: 0.63rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(26,26,46,0.45); font-weight: 600; margin-bottom: 1.8rem;
-    }
-    .card-main-word {
-      font-family: 'Playfair Display', serif; font-size: 4.5rem;
-      font-weight: 900; color: var(--ink); line-height: 1; letter-spacing: -0.03em;
-    }
-    .card-divider { width: 42px; height: 2px; background: rgba(26,26,46,0.18); margin: 1.6rem 0; }
-    .card-tagline { font-size: 0.92rem; font-weight: 400; color: rgba(26,26,46,0.6); line-height: 1.7; }
 
-    /* ---- SECTIONS ---- */
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 460px;
+      margin-bottom: 2.8rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.55s forwards;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--ink);
+      padding: 0.9rem 2rem;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      padding: 0.9rem 2rem;
+      border: 1.5px solid var(--ink);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.7s forwards;
+    }
+
+    .hero-card {
+      background: var(--gold);
+      color: var(--ink);
+      border-radius: 14px;
+      padding: 3.2rem 3rem;
+      width: 320px;
+      box-shadow: 0 40px 90px rgba(200,151,58,0.25), 0 10px 28px rgba(26,26,46,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      pointer-events: none;
+    }
+
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: rgba(26,26,46,0.06);
+      pointer-events: none;
+    }
+
+    .card-label {
+      font-size: 0.63rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(26,26,46,0.45);
+      font-weight: 600;
+      margin-bottom: 1.8rem;
+    }
+
+    .card-main-word {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .card-divider {
+      width: 42px;
+      height: 2px;
+      background: rgba(26,26,46,0.18);
+      margin: 1.6rem 0;
+    }
+
+    .card-tagline {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: rgba(26,26,46,0.6);
+      line-height: 1.7;
+    }
+
     section { padding: 7rem 5vw; }
+
     .section-label {
       font-size: 0.75rem;
       letter-spacing: 0.2em;
@@ -180,6 +300,7 @@
       font-weight: 500;
       margin-bottom: 1rem;
     }
+
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 4vw, 3rem);
@@ -189,6 +310,7 @@
       color: var(--ink);
       margin-bottom: 1.2rem;
     }
+
     .section-sub {
       font-size: 1rem;
       line-height: 1.75;
@@ -197,134 +319,28 @@
       font-weight: 300;
     }
 
-    /* ---- SERVICES CAROUSEL ---- */
     #services { background: var(--cream); }
-    .carousel-wrapper {
-      margin-top: 4rem;
-      position: relative;
-      overflow: hidden;
-      margin-left: -5vw;
-      margin-right: -5vw;
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      width: 800%;
-    }
-    .service-item {
-      min-width: 12.5%;
-      background: var(--ink);
-      color: var(--cream);
-      padding: 3.5rem 5rem;
-      display: flex;
-      gap: 5rem;
-      align-items: center;
-      border-radius: 4px;
-      min-height: 320px;
-    }
-    .service-item-left {
-      flex: 0 0 160px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-    .service-item-right { flex: 1; }
-    .service-icon {
-      font-size: 2.5rem;
-      display: block;
-      line-height: 1;
-    }
-    .service-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 6rem;
-      font-weight: 900;
-      color: rgba(200,151,58,0.2);
-      line-height: 1;
-    }
-    .service-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--cream);
-      margin-bottom: 1.25rem;
-      line-height: 1.2;
-    }
-    .service-desc {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.55);
-      font-weight: 300;
-      max-width: 560px;
-    }
-    .service-divider {
-      width: 1px;
-      height: 180px;
-      background: rgba(200,151,58,0.3);
-      flex-shrink: 0;
-    }
-    .carousel-controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 1.5rem;
-    }
-    .carousel-dots {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .carousel-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--border);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-      border: none;
-    }
-    .carousel-dot.active {
-      background: var(--gold);
-      transform: scale(1.3);
-    }
-    .carousel-arrows { display: flex; gap: 0.75rem; }
-    .carousel-btn {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      border: 1.5px solid var(--ink);
-      background: transparent;
-      cursor: pointer;
-      font-size: 1.1rem;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.2s;
-      color: var(--ink);
-    }
-    .carousel-btn:hover { background: var(--ink); color: var(--cream); }
-    .carousel-progress {
-      height: 2px;
-      background: var(--border);
-      margin-top: 1rem;
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .carousel-progress-bar {
-      height: 100%;
-      background: var(--gold);
-      border-radius: 2px;
-      transition: width 0.1s linear;
-    }
-    @media (max-width: 700px) {
-      .service-item { flex-direction: column; gap: 1.5rem; padding: 2.5rem 2rem; }
-      .service-name { font-size: 1.5rem; }
-    }
 
-    /* ---- WHY US ---- */
     #why {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
       align-items: center;
     }
-    .why-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
-    .why-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+
+    .why-list {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
     .why-num {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
@@ -334,101 +350,82 @@
       min-width: 2.5rem;
       opacity: 0.4;
     }
+
     .why-text h4 {
       font-weight: 500;
       font-size: 1rem;
       margin-bottom: 0.3rem;
       color: var(--ink);
     }
-    .why-text p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+    .why-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
     .why-visual {
       background: var(--ink);
       border-radius: 4px;
       padding: 3rem;
       color: var(--cream);
     }
+
     .why-visual-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
       margin-bottom: 2rem;
       font-weight: 700;
     }
+
     .process-step {
-      display: flex; align-items: center; gap: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .process-step:last-child { border-bottom: none; margin-bottom: 0; }
+
+    .process-step:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
     .step-dot {
-      width: 36px; height: 36px; border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
       background: var(--gold);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--ink);
-      font-size: 0.8rem; font-weight: 700;
+      font-size: 0.8rem;
+      font-weight: 700;
       flex-shrink: 0;
     }
-    .step-content h5 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.2rem; }
-    .step-content p { font-size: 0.8rem; opacity: 0.55; line-height: 1.5; }
 
-    /* ---- TESTIMONIALS ---- */
-    #testimonials { background: var(--cream); }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 4rem;
+    .step-content h5 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
     }
-    .testimonial-card {
-      background: var(--warm-white);
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      border-radius: 4px;
-      position: relative;
-      transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .testimonial-card:hover {
-      box-shadow: 0 12px 40px rgba(26,26,46,0.08);
-      transform: translateY(-3px);
-    }
-    .quote-mark {
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      line-height: 0.8;
-      color: var(--gold);
-      opacity: 0.3;
-      margin-bottom: 1rem;
-    }
-    .testimonial-text {
-      font-size: 0.95rem;
-      line-height: 1.75;
-      color: var(--slate);
-      font-style: italic;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 2rem;
-      font-weight: 400;
-    }
-    .testimonial-author { display: flex; align-items: center; gap: 1rem; }
-    .author-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--ink);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-    .author-name { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
-    .author-role { font-size: 0.78rem; color: var(--muted); }
-    .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; }
 
-    /* ---- CONTACT ---- */
+    .step-content p {
+      font-size: 0.8rem;
+      opacity: 0.55;
+      line-height: 1.5;
+    }
+
     #contact {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       gap: 6rem;
       align-items: start;
     }
+
     .contact-info h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
@@ -436,22 +433,43 @@
       margin: 2rem 0 0.5rem;
       color: var(--ink);
     }
+
     .contact-info p {
       font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.65;
       font-weight: 300;
     }
+
     .contact-detail {
-      display: flex; align-items: center; gap: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
       margin: 1rem 0;
-      font-size: 0.9rem; color: var(--slate);
+      font-size: 0.9rem;
+      color: var(--slate);
     }
+
     .contact-detail span:first-child { font-size: 1.1rem; }
 
-    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
     .form-group label {
       font-size: 0.78rem;
       font-weight: 500;
@@ -459,6 +477,7 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+
     .form-group input,
     .form-group select,
     .form-group textarea {
@@ -473,14 +492,19 @@
       transition: border-color 0.2s;
       resize: vertical;
     }
+
     .form-group input:focus,
     .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
     .form-submit {
       background: var(--gold);
       color: var(--ink);
       padding: 1rem 2rem;
-      border: none; cursor: pointer;
+      border: none;
+      cursor: pointer;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.9rem;
       font-weight: 500;
@@ -490,7 +514,12 @@
       transition: background 0.2s, transform 0.2s;
       align-self: flex-start;
     }
-    .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .form-submit:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
     .form-success {
       display: none;
       padding: 1.2rem;
@@ -502,7 +531,6 @@
       text-align: center;
     }
 
-    /* ---- FOOTER ---- */
     footer {
       background: var(--ink);
       color: rgba(255,255,255,0.5);
@@ -513,34 +541,37 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
+
     .footer-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--cream);
     }
+
     .footer-logo span { color: var(--gold); }
+
     footer p { font-size: 0.8rem; }
-    .footer-links { display: flex; gap: 1.5rem; }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
     .footer-links a {
       color: rgba(255,255,255,0.5);
       text-decoration: none;
       font-size: 0.8rem;
       transition: color 0.2s;
     }
+
     .footer-links a:hover { color: var(--gold); }
 
-    /* ---- ANIMATIONS ---- */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
 
-    /* ---- RESPONSIVE ---- */
     @media (max-width: 900px) {
       #hero { grid-template-columns: 1fr; padding: 8rem 5vw 5rem; }
       .hero-visual { display: none; }
@@ -548,15 +579,11 @@
       #contact { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      .services-grid { grid-template-columns: 1fr; }
-      .service-item { border-right: none; border-bottom: 2px solid var(--ink); }
-      .service-item:last-child { border-bottom: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo" style="display:flex;align-items:center;gap:9px;">
     <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -571,14 +598,12 @@
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#why">About</a></li>
-    <li><a href="#why">Why Solidus</a></li>
+    <li><a href="#credibility">Credibility</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-
   <div class="hero-watermark">SOLIDUS</div>
 
   <div class="hero-content">
@@ -603,58 +628,62 @@
       <div class="card-tagline">Categorized. Reconciled. Done.</div>
     </div>
   </div>
-
 </section>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="section-label">Our Services</div>
   <h2 class="section-title">Accounting services for<br />growing businesses.</h2>
   <p class="section-sub">Professional accounting support delivered clearly, accurately, and on time.</p>
 
   <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-top:3.5rem;">
-
     <div style="background:var(--ink); color:var(--cream); border-radius:4px; padding:2rem 2.5rem;">
       <h4 style="font-family:'Playfair Display', serif; font-size:1.2rem; margin-bottom:0.75rem;">Financial Organization &amp; Cleanup</h4>
       <p style="font-size:0.88rem; opacity:0.75; line-height:1.6;">Behind on your records? Solidus Accounting will systematically organize and reconstruct your financial history — accurately and efficiently.</p>
     </div>
+
     <div style="background:var(--ink); color:var(--cream); border-radius:4px; padding:2rem 2.5rem;">
       <h4 style="font-family:'Playfair Display', serif; font-size:1.2rem; margin-bottom:0.75rem;">Cloud Accounting Systems</h4>
       <p style="font-size:0.88rem; opacity:0.75; line-height:1.6;">Setup, migration, and ongoing management of cloud accounting platforms — QuickBooks, Xero, Sage, and Wave.</p>
     </div>
+
     <div style="background:var(--ink); color:var(--cream); border-radius:4px; padding:2rem 2.5rem;">
       <h4 style="font-family:'Playfair Display', serif; font-size:1.2rem; margin-bottom:0.75rem;">Bookkeeping</h4>
       <p style="font-size:0.88rem; opacity:0.75; line-height:1.6;">Ongoing monthly or quarterly bookkeeping services — transaction categorization, ledger maintenance, and organized financial records your business can rely on.</p>
     </div>
+
     <div style="background:var(--ink); color:var(--cream); border-radius:4px; padding:2rem 2.5rem;">
       <h4 style="font-family:'Playfair Display', serif; font-size:1.2rem; margin-bottom:0.75rem;">Account Reconciliations</h4>
       <p style="font-size:0.88rem; opacity:0.75; line-height:1.6;">Regular reconciliation of bank accounts, credit cards, and ledgers to ensure your financial records are accurate and up to date.</p>
     </div>
+
     <div style="background:var(--ink); color:var(--cream); border-radius:4px; padding:2rem 2.5rem;">
       <h4 style="font-family:'Playfair Display', serif; font-size:1.2rem; margin-bottom:0.75rem;">Payroll Services</h4>
       <p style="font-size:0.88rem; opacity:0.75; line-height:1.6;">Accurate and timely payroll processing for businesses across Canada and the United States — ensuring employees are paid correctly and compliance obligations are met.</p>
     </div>
+
     <div style="background:var(--ink); color:var(--cream); border-radius:4px; padding:2rem 2.5rem;">
       <h4 style="font-family:'Playfair Display', serif; font-size:1.2rem; margin-bottom:0.75rem;">HST &amp; GST Filing</h4>
       <p style="font-size:0.88rem; opacity:0.75; line-height:1.6;">Accurate preparation and filing of HST and GST returns for Canadian businesses — ensuring compliance with CRA requirements and deadlines.</p>
     </div>
+
     <div style="background:var(--ink); color:var(--cream); border-radius:4px; padding:2rem 2.5rem;">
       <h4 style="font-family:'Playfair Display', serif; font-size:1.2rem; margin-bottom:0.75rem;">Financial Reporting</h4>
       <p style="font-size:0.88rem; opacity:0.75; line-height:1.6;">Clear, accurate financial statements prepared on a regular basis — so you always know where your business stands financially.</p>
     </div>
+
     <div style="background:var(--ink); color:var(--cream); border-radius:4px; padding:2rem 2.5rem;">
       <h4 style="font-family:'Playfair Display', serif; font-size:1.2rem; margin-bottom:0.75rem;">Accounting Support &amp; Advisory</h4>
       <p style="font-size:0.88rem; opacity:0.75; line-height:1.6;">Ongoing accounting support for business owners who need a reliable professional to maintain financial records and answer questions as they arise.</p>
     </div>
+  </div>
+</section>
 
-  </div></section>
-
-<!-- WHY US -->
 <section id="why">
   <div>
     <div class="section-label">Why Solidus</div>
     <h2 class="section-title">A professional firm.<br />Built for remote work.</h2>
     <p class="section-sub">A remote-first firm designed to serve businesses across Canada and the United States efficiently and professionally.</p>
+
     <div class="why-list">
       <div class="why-item">
         <div class="why-num">01</div>
@@ -663,6 +692,7 @@
           <p>Solidus Accounting provides professionally trained accounting expertise to every client engagement — delivered with precision and care.</p>
         </div>
       </div>
+
       <div class="why-item">
         <div class="why-num">02</div>
         <div class="why-text">
@@ -670,6 +700,7 @@
           <p>Solidus Accounting responds within 2 business days and communicates in plain language. Clients always know where their financials stand — no guesswork, no delays.</p>
         </div>
       </div>
+
       <div class="why-item">
         <div class="why-num">03</div>
         <div class="why-text">
@@ -677,6 +708,7 @@
           <p>The firm operates entirely online, serving clients across Canada and the United States through cloud-based accounting platforms — professional service, wherever you are.</p>
         </div>
       </div>
+
       <div class="why-item">
         <div class="why-num">04</div>
         <div class="why-text">
@@ -686,8 +718,10 @@
       </div>
     </div>
   </div>
+
   <div class="why-visual">
     <div class="why-visual-title">How it works</div>
+
     <div class="process-step">
       <div class="step-dot">1</div>
       <div class="step-content">
@@ -695,6 +729,7 @@
         <p>We learn about your business and figure out exactly what you need. No commitment.</p>
       </div>
     </div>
+
     <div class="process-step">
       <div class="step-dot">2</div>
       <div class="step-content">
@@ -702,13 +737,15 @@
         <p>You get a clear, flat-rate quote. No hourly billing surprises, no hidden fees.</p>
       </div>
     </div>
+
     <div class="process-step">
       <div class="step-dot">3</div>
       <div class="step-content">
-        <h5>Onboarding & Setup</h5>
+        <h5>Onboarding &amp; Setup</h5>
         <p>We connect to your accounts, set up your tools, and get everything organized.</p>
       </div>
     </div>
+
     <div class="process-step">
       <div class="step-dot">4</div>
       <div class="step-content">
@@ -719,56 +756,68 @@
   </div>
 </section>
 
-<!-- CREDIBILITY -->
-<section id="testimonials" style="background: var(--cream); text-align: center;">
+<section id="credibility" style="background: var(--cream); text-align: center;">
   <div class="section-label">Our clients</div>
   <h2 class="section-title" style="margin: 0 auto 1.5rem;">Currently supporting businesses<br />across Canada and the United States.</h2>
   <p class="section-sub" style="margin: 0 auto 3rem; text-align: center;">Solidus Accounting supports incorporated businesses and small firms across Canada and the United States — delivering reliable accounting support remotely, professionally, and on time.</p>
+
   <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem;">
     <div style="text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">CA & US</div>
-      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Canada & U.S.</div>
+      <div style="font-family:'Playfair Display', serif; font-size:2.5rem; font-weight:900; color:var(--gold);">CA &amp; US</div>
+      <div style="font-size:0.8rem; color:var(--muted); margin-top:0.3rem; letter-spacing:0.08em; text-transform:uppercase;">Canada &amp; U.S.</div>
     </div>
-    <div style="width: 1px; background: var(--border);"></div>
+
+    <div style="width:1px; background:var(--border);"></div>
+
     <div style="text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">Flat</div>
-      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Rate Pricing</div>
+      <div style="font-family:'Playfair Display', serif; font-size:2.5rem; font-weight:900; color:var(--gold);">Flat</div>
+      <div style="font-size:0.8rem; color:var(--muted); margin-top:0.3rem; letter-spacing:0.08em; text-transform:uppercase;">Rate Pricing</div>
     </div>
-    <div style="width: 1px; background: var(--border);"></div>
+
+    <div style="width:1px; background:var(--border);"></div>
+
     <div style="text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">2 days</div>
-      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Response Time</div>
+      <div style="font-family:'Playfair Display', serif; font-size:2.5rem; font-weight:900; color:var(--gold);">2 days</div>
+      <div style="font-size:0.8rem; color:var(--muted); margin-top:0.3rem; letter-spacing:0.08em; text-transform:uppercase;">Response Time</div>
     </div>
-    <div style="width: 1px; background: var(--border);"></div>
+
+    <div style="width:1px; background:var(--border);"></div>
+
     <div style="text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold);">Inc.</div>
-      <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase;">Incorporated in Canada</div>
+      <div style="font-family:'Playfair Display', serif; font-size:2.5rem; font-weight:900; color:var(--gold);">Inc.</div>
+      <div style="font-size:0.8rem; color:var(--muted); margin-top:0.3rem; letter-spacing:0.08em; text-transform:uppercase;">Incorporated in Canada</div>
     </div>
   </div>
 </section>
 
-<!-- SOFTWARE STRIP -->
 <section id="software" style="background:#f7f5f1; padding:60px 0;">
   <div style="max-width:900px; margin:0 auto; padding:0 40px; text-align:center;">
     <div class="section-label">Tools We Use</div>
     <h2 class="section-title" style="font-size:1.6rem; margin-bottom:12px;">Cloud accounting platforms we work with.</h2>
     <p class="section-sub" style="margin-bottom:48px; max-width:600px; margin-left:auto; margin-right:auto;">We work across all major cloud accounting platforms — so you don't need to change your existing setup.</p>
+
     <div style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap; margin-bottom:48px;">
       <div style="text-align:center;">
         <div style="font-size:1.1rem; font-weight:700; color:#1a1a2e; letter-spacing:0.05em;">QuickBooks</div>
         <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Online</div>
       </div>
+
       <div style="width:1px; height:32px; background:#d0cdc8;"></div>
+
       <div style="text-align:center;">
         <div style="font-size:1.1rem; font-weight:700; color:#1a1a2e; letter-spacing:0.05em;">Xero</div>
         <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Cloud Accounting</div>
       </div>
+
       <div style="width:1px; height:32px; background:#d0cdc8;"></div>
+
       <div style="text-align:center;">
         <div style="font-size:1.1rem; font-weight:700; color:#1a1a2e; letter-spacing:0.05em;">Sage</div>
         <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Accounting</div>
       </div>
+
       <div style="width:1px; height:32px; background:#d0cdc8;"></div>
+
       <div style="text-align:center;">
         <div style="font-size:1.1rem; font-weight:700; color:#1a1a2e; letter-spacing:0.05em;">Wave</div>
         <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Financial Software</div>
@@ -777,7 +826,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-info">
     <div class="section-label">Get in touch</div>
@@ -790,15 +838,16 @@
       <span>✉️</span>
       <a href="mailto:contact@solidusaccounting.com" style="color:inherit;text-decoration:none;">contact@solidusaccounting.com</a>
     </div>
+
     <div class="contact-detail">
       <span>📞</span>
       <a href="tel:+16478482586" style="color:inherit;text-decoration:none;">(647) 848-2586</a>
     </div>
+
     <div class="contact-detail">
       <span>🍁</span>
-      <span>Canada & U.S., fully remote</span>
+      <span>Canada &amp; U.S., fully remote</span>
     </div>
-
   </div>
 
   <div>
@@ -813,10 +862,12 @@
           <input type="text" name="lastName" placeholder="Smith" />
         </div>
       </div>
+
       <div class="form-group">
         <label>Email Address</label>
         <input type="email" name="email" placeholder="jane@yourcompany.com" required />
       </div>
+
       <div class="form-group">
         <label>Business Type</label>
         <select name="businessType">
@@ -828,6 +879,7 @@
           <option>Other</option>
         </select>
       </div>
+
       <div class="form-group">
         <label>What do you need help with?</label>
         <select name="serviceType">
@@ -835,16 +887,22 @@
           <option>Bookkeeping</option>
           <option>Account Reconciliations</option>
           <option>Financial Reporting</option>
-          <option>Cloud Accounting Setup</option>
+          <option>Cloud Accounting Systems</option>
+          <option>Payroll Services</option>
+          <option>HST & GST Filing</option>
+          <option>Accounting Support & Advisory</option>
           <option>Financial Organization & Cleanup</option>
           <option>Not sure — let's talk</option>
         </select>
       </div>
+
       <div class="form-group">
         <label>Tell us a bit about your situation</label>
         <textarea name="message" rows="4" placeholder="How many transactions per month? Any software you currently use? What's your biggest headache right now?"></textarea>
       </div>
+
       <button type="submit" class="form-submit">Send Message →</button>
+
       <div class="form-success" id="formSuccess">
         ✓ Message received! We'll be in touch within 2 business days.
       </div>
@@ -852,7 +910,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo" style="display:flex;align-items:center;gap:9px;">
     <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -864,7 +921,9 @@
     </svg>
     <span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fdfbf8;letter-spacing:-0.01em;">Solidus<span style="color:#c8973a;">.</span></span>
   </div>
+
   <p>© 2026 Solidus Accounting Inc. All rights reserved.</p>
+
   <div class="footer-links">
     <a href="#services">Services</a>
     <a href="#why">About</a>
@@ -873,7 +932,6 @@
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -883,27 +941,37 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('section').forEach(s => {
-    s.style.opacity = '0';
-    s.style.transform = 'translateY(20px)';
-    s.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(s);
+  document.querySelectorAll('section:not(#hero)').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(section);
   });
 
-  // Contact form
   const form = document.querySelector('.contact-form');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
-      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-      if (res.ok) {
-        form.reset();
-        const msg = document.getElementById('formSuccess');
-        if (msg) msg.style.display = 'block';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          const msg = document.getElementById('formSuccess');
+          if (msg) msg.style.display = 'block';
+        }
+      } catch (err) {
+        console.error('Form submission failed', err);
       }
     });
   }
 </script>
+
 </body>
 </html>
