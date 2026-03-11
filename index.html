@@ -867,7 +867,7 @@
   <div style="max-width:900px; margin:0 auto; padding:0 40px; text-align:center;">
     <div class="section-label">Tools We Use</div>
     <h2 class="section-title" style="font-size:1.6rem; margin-bottom:12px;">Cloud accounting platforms we work with.</h2>
-    <p class="section-sub" style="margin-bottom:48px;">We work across all major cloud accounting platforms — so you don't need to change your existing setup.</p>
+    <p class="section-sub" style="margin-bottom:48px; max-width:600px; margin-left:auto; margin-right:auto;">We work across all major cloud accounting platforms — so you don't need to change your existing setup.</p>
     <div style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap; margin-bottom:48px;">
       <div style="text-align:center;">
         <div style="font-size:1.1rem; font-weight:700; color:#1a1a2e; letter-spacing:0.05em;">QuickBooks</div>
@@ -889,7 +889,6 @@
         <div style="font-size:0.75rem; color:#7a7a8c; margin-top:4px;">Financial Software</div>
       </div>
     </div>
-    <p style="font-size:0.85rem; color:#7a7a8c;">Monthly retainers and one-time project engagements available.</p>
   </div>
 </section>
 
@@ -989,49 +988,46 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Carousel
-  document.addEventListener('DOMContentLoaded', function() {
-    const track = document.getElementById('carouselTrack');
-    const dotsContainer = document.getElementById('carouselDots');
-    const progressBar = document.getElementById('progressBar');
-    const total = track.children.length;
-    let current = 0;
-    let interval;
-    const duration = 4000;
-    let startTime;
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('carouselDots');
+  const progressBar = document.getElementById('progressBar');
+  const total = track.children.length;
+  let current = 0;
+  let interval;
+  const duration = 4000;
+  let startTime;
 
-    // Create dots
-    for (let i = 0; i < total; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.onclick = () => goTo(i);
-      dotsContainer.appendChild(dot);
-    }
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    dotsContainer.appendChild(dot);
+  }
 
-    function goTo(index) {
-      current = (index + total) % total;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
-        d.classList.toggle('active', i === current);
-      });
-      resetTimer();
-    }
-
-    window.moveCarousel = function(dir) { goTo(current + dir); }
-
-    function resetTimer() {
-      clearInterval(interval);
-      startTime = Date.now();
-      progressBar.style.width = '0%';
-      interval = setInterval(() => {
-        const elapsed = Date.now() - startTime;
-        const pct = Math.min((elapsed / duration) * 100, 100);
-        progressBar.style.width = pct + '%';
-        if (elapsed >= duration) goTo(current + 1);
-      }, 50);
-    }
-
+  function goTo(index) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
     resetTimer();
-  });
+  }
+
+  function moveCarousel(dir) { goTo(current + dir); }
+
+  function resetTimer() {
+    clearInterval(interval);
+    startTime = Date.now();
+    progressBar.style.width = '0%';
+    interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min((elapsed / duration) * 100, 100);
+      progressBar.style.width = pct + '%';
+      if (elapsed >= duration) goTo(current + 1);
+    }, 50);
+  }
+
+  resetTimer();
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
