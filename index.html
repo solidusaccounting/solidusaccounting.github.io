@@ -696,6 +696,7 @@
           if (response.ok) {
             form.reset();
             if (success) success.style.display = 'block';
+            gtag('event', 'manual_event_SUBMIT_LEAD_FORM');
           } else {
             if (error) error.style.display = 'block';
           }
