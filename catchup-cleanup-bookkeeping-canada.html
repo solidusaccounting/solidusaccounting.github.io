@@ -149,6 +149,8 @@
       .process-steps { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
+  <link rel="stylesheet" href="lead-form.css" />
+  <script src="lead-form.js" defer></script>
 </head>
 <body>
 
@@ -164,7 +166,7 @@
     <a href="index.html#testimonials">Clients</a>
     <a href="resources.html">Resources</a>
     <a href="careers.html">Careers</a>
-    <a href="index.html#contact">Get in Touch</a>
+    <a href="#contact">Get in Touch</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -177,7 +179,7 @@
   <a href="index.html#testimonials">Clients</a>
   <a href="resources.html">Resources</a>
   <a href="careers.html">Careers</a>
-  <a href="index.html#contact">Get in Touch →</a>
+  <a href="#contact">Get in Touch →</a>
 </div>
 
 <!-- HERO -->
@@ -186,8 +188,8 @@
   <h1>Behind on your books?<br>Let's <em>fix that.</em></h1>
   <p class="hero-sub">Messy records, months of uncategorized transactions, or books that haven't been touched in over a year — we've seen it all. Solidus will bring your financials up to date accurately, completely, and without judgment.</p>
   <div class="hero-actions">
-    <a href="index.html#contact" class="btn btn-primary">Get a Free Financial Review</a>
-    <a href="index.html#contact" class="btn btn-secondary">Talk to Us First</a>
+    <a href="#contact" class="btn btn-primary">Free Bookkeeping Assessment</a>
+    <a href="tel:+16478482586" class="btn btn-secondary">Call Our Team</a>
   </div>
   <div class="hero-trust">
     <span class="trust-item">No judgment — just solutions</span>
@@ -313,13 +315,31 @@
   </div>
 </div>
 
+<section class="lead-contact" id="contact" aria-labelledby="assessment-title">
+  <div class="section-label">Free Bookkeeping Assessment</div>
+  <h2 id="assessment-title">Let's get your books back on track.</h2>
+  <p>Tell our team where things stand. We'll respond within 2 business days and discuss the scope before providing a flat-rate cleanup quote. No judgment and no commitment required.</p>
+  <form class="lead-form" action="https://formspree.io/f/mgonowjr" method="POST">
+    <label>Your name<input name="firstName" autocomplete="name" required maxlength="120" /></label>
+    <label>Email address<input type="email" name="email" autocomplete="email" required maxlength="254" /></label>
+    <label>How far behind are your books? (optional)<textarea name="message" placeholder="For example: six months behind, using QuickBooks, with two bank accounts"></textarea></label>
+    <input type="hidden" name="serviceType" value="Catch-Up and Cleanup Bookkeeping" />
+    <input type="hidden" name="sourcePage" value="catchup-cleanup-bookkeeping-canada" />
+    <input class="lead-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <button class="btn btn-primary" type="submit">Request My Free Assessment</button>
+    <div role="status" aria-live="polite" aria-atomic="true"></div>
+  </form>
+  <p>Please don't include bank details or sensitive financial documents. See our <a href="privacy.html">Privacy Policy</a>.</p>
+  <p>Prefer to talk? <a href="tel:+16478482586">Call (647) 848-2586</a> or <a href="mailto:contact@solidusaccounting.com">email our team</a>.</p>
+</section>
+
 <!-- CTA -->
 <div class="cta-strip">
   <div>
     <h2>Ready to get your books in order?</h2>
     <p>No pressure — just a quick conversation to see how we can help.</p>
   </div>
-  <a href="index.html#contact" class="btn btn-primary" style="font-size:1rem; padding:1rem 2rem;">Get a Free Financial Review →</a>
+  <a href="#contact" class="btn btn-primary" style="font-size:1rem; padding:1rem 2rem;">Free Bookkeeping Assessment →</a>
 </div>
 
 <footer>
@@ -330,7 +350,7 @@
     <a href="index.html#founder">Meet the Founder</a>
     <a href="resources.html">Resources</a>
     <a href="careers.html">Careers</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="#contact">Contact</a>
     <a href="privacy.html">Privacy Policy</a>
   </div>
   <div class="footer-bottom">© 2026 Solidus Accounting Inc. All rights reserved. Canadian Incorporated · Durham Region, Ontario · Serving Canada & the U.S.</div>

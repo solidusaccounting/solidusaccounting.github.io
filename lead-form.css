@@ -1,0 +1,12 @@
+.lead-contact { padding: 3rem 5vw; max-width: 860px; scroll-margin-top: 6rem; }
+.lead-contact p { margin: 1rem 0; line-height: 1.6; }
+.lead-form { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.lead-form label { display: grid; gap: .45rem; font-weight: 500; }
+.lead-form input, .lead-form textarea { width: 100%; box-sizing: border-box; padding: .85rem; border: 1px solid #777; border-radius: 4px; font: inherit; font-size: 16px; background: #fff; color: #222; }
+.lead-form textarea { min-height: 100px; resize: vertical; }
+.lead-form .lead-honeypot { display: none; }
+.lead-form button { min-height: 48px; cursor: pointer; white-space: normal; }
+.lead-form button:disabled { opacity: .65; cursor: wait; }
+.lead-form :focus-visible { outline: 3px solid #987020; outline-offset: 3px; }
+.lead-form [role="status"] { line-height: 1.6; }
+.lead-form .lead-error { color: #a12020; }
